@@ -1,0 +1,65 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: fraud_pg
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.15.1
+    container_name: fraud_mlflow
+    env_file: .env
+    command: >
+      mlflow server
+      --backend-store-uri sqlite:///mlflow.db
+      --default-artifact-root ${MLFLOW_ARTIFACT_ROOT}
+      --host 0.0.0.0 --port ${MLFLOW_PORT}
+    ports:
+      - "${MLFLOW_PORT}:${MLFLOW_PORT}"
+    volumes:
+      - mlruns:${MLFLOW_ARTIFACT_ROOT}
+
+  api:
+    build:
+      context: .
+      dockerfile: ./app/api/Dockerfile
+    container_name: fraud_api
+    env_file: .env
+    depends_on:
+      - postgres
+    ports:
+      - "${API_PORT}:8000"
+    volumes:
+      - ./app:/app
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: ./streamlit_app/Dockerfile
+    container_name: fraud_streamlit
+    env_file: .env
+    depends_on:
+      - api
+    ports:
+      - "${STREAMLIT_PORT}:8501"
+    volumes:
+      - ./streamlit_app:/app
+
+volumes:
+  pgdata:
+  mlruns:
