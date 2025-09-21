@@ -4,6 +4,9 @@ import torch
 import io
 import pickle
 from app.utils.torch_utils import CPU_Unpickler
+from app.src.ActionTransformer import ActionTransformer
+import app.src.ActionTransformer as at
+sys.modules['ActionTransformer'] = at
         
 
 def test_encoder_embeddings_pkl_exists():
