@@ -1,0 +1,37 @@
+name: CI FraudeBdE
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Clonar el repositorio
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # 2. Configurar Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      # 3. Instalar dependencias (si tienes requirements.txt)
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      # 4. Ejecutar tests (si no tienes, prueba con echo)
+      - name: Run tests
+        run: |
+          if [ -f pytest.ini ] || [ -d tests ]; then
+            pytest -v
+          else
+            echo "Hola BdE, GitHub Actions funcionando 🚀"
+          fi
