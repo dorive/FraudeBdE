@@ -3,8 +3,18 @@ import pytest
 import torch
 import io
 import pickle
-sys.path.append("..")
-from app.utils.torch_utils import set_seed, CPU_Unpickler
+
+class CPU_Unpickler(pickle.Unpickler):
+
+    def find_class(self, module, name):
+        # Caso especial: carga de tensores almacenados con torch.storage
+        if module == 'torch.storage' and name == '_load_from_bytes':
+            # Redirigimos a torch.load con map_location='cpu'
+            return lambda b: torch.load(io.BytesIO(b), map_location='cpu')
+        else:
+            # Para el resto, usar el comportamiento estándar
+            return super().find_class(module, name)
+        
 
 def test_encoder_embeddings_pkl_exists():
     path = os.path.join("app", "modelos", "encoder_embeddings.pkl")
