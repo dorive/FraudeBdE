@@ -1,1 +1,1 @@
-pyarrow
+pytest
