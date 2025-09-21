@@ -3,3 +3,9 @@ numpy
 pandas
 scikit-learn
 torch
+numpy
+scikit-learn
+lightgbm
+xgboost
+mlflow
+python-dotenv
