@@ -1,0 +1,6 @@
+artifact_location: file:///home/david/Documentos/Proyectos GitHub/FraudeBdE/notebooks/../mlruns/932009013022666611
+creation_time: 1758578096880
+experiment_id: '932009013022666611'
+last_update_time: 1758578096880
+lifecycle_stage: active
+name: gradient-boosting-fraude

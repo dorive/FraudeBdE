@@ -1,0 +1,14 @@
+artifact_uri: file:///home/david/Documentos/Proyectos GitHub/FraudeBdE/notebooks/../mlruns/932009013022666611/f76b8204de7a4d17be0e6a4718a86637/artifacts
+end_time: 1758578325841
+entry_point_name: ''
+experiment_id: '932009013022666611'
+lifecycle_stage: active
+run_id: f76b8204de7a4d17be0e6a4718a86637
+run_name: GB+Embeddings+SMOTE-fold1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758578310952
+status: 3
+tags: []
+user_id: david

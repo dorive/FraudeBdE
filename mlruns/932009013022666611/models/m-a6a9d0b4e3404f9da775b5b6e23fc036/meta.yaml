@@ -1,0 +1,10 @@
+artifact_location: file:///home/david/Documentos/Proyectos GitHub/FraudeBdE/notebooks/../mlruns/932009013022666611/models/m-a6a9d0b4e3404f9da775b5b6e23fc036/artifacts
+creation_timestamp: 1758578100931
+experiment_id: '932009013022666611'
+last_updated_timestamp: 1758578103479
+model_id: m-a6a9d0b4e3404f9da775b5b6e23fc036
+model_type: null
+name: model_fold_1
+source_run_id: d92813ce9e3643258e24353c9d840637
+status: 2
+status_message: null

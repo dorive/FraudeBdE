@@ -1,0 +1,14 @@
+artifact_uri: file:///home/david/Documentos/Proyectos GitHub/FraudeBdE/notebooks/../mlruns/932009013022666611/b75f7d6779d94103ac392d53d2df5a0c/artifacts
+end_time: 1758578310709
+entry_point_name: ''
+experiment_id: '932009013022666611'
+lifecycle_stage: active
+run_id: b75f7d6779d94103ac392d53d2df5a0c
+run_name: CV-GB+SMOTE
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758578228799
+status: 3
+tags: []
+user_id: david

@@ -1,0 +1,14 @@
+artifact_uri: file:///home/david/Documentos/Proyectos GitHub/FraudeBdE/notebooks/../mlruns/932009013022666611/4dbe41b1ca2b461e80b6dec30ad1ad5f/artifacts
+end_time: 1758578183124
+entry_point_name: ''
+experiment_id: '932009013022666611'
+lifecycle_stage: active
+run_id: 4dbe41b1ca2b461e80b6dec30ad1ad5f
+run_name: GB-sin-Embeddings-fold4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758578177803
+status: 3
+tags: []
+user_id: david

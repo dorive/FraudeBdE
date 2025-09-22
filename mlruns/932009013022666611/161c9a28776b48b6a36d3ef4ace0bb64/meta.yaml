@@ -1,0 +1,14 @@
+artifact_uri: file:///home/david/Documentos/Proyectos GitHub/FraudeBdE/notebooks/../mlruns/932009013022666611/161c9a28776b48b6a36d3ef4ace0bb64/artifacts
+end_time: 1758578161512
+entry_point_name: ''
+experiment_id: '932009013022666611'
+lifecycle_stage: active
+run_id: 161c9a28776b48b6a36d3ef4ace0bb64
+run_name: CV-GB+Embeddings
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758578097013
+status: 3
+tags: []
+user_id: david
